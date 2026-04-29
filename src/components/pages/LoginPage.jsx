@@ -1,57 +1,57 @@
-import React from "React";
-import {useState, useContext} from "React";
-import {AuthContext} from "../AuthenticationContext";
-import {useNavigate} from "react-router-dom";
+import { useState, useContext } from "react";
+import { AuthContext } from "../AuthenticationContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const {login} = useContext(AuthContext);
-    const naviagte = useNavigate();
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-        if (!username || !password){
-            setError("All fields are required");
-            return;
-        }
+    if (!username || !password) {
+      setError("All fields are required");
+      return;
+    }
 
-        const success = login(username, password);
+    const success = login(username, password);
 
-        if (success){
-            naviagte("/posts");
-        } else {
-            setError("Invalid Credintials");
-        }
-    };
+    if (success) {
+      navigate("/posts");
+    } else {
+      setError("Invalid credentials");
+    }
+  };
 
-    return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
+  return (
+    <div>
+      <h2>Login</h2>
 
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
 
-                <button type="submit">Login</button>
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-                {error && <p style={{color : red}}>{error}</p>}
-            </form>
-        </div>
-    );
+        <button type="submit">Login</button>
+
+        {error && <p style={{ color: "red" }}>{error}</p>}
+      </form>
+    </div>
+  );
 };
 
 export default Login;
