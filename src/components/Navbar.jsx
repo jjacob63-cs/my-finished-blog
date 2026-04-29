@@ -9,15 +9,15 @@ export default function Navbar() {
 
     return (
         <div className="flex justify-between items-center p-4 bg-gray-100">
-            <nav className="space-x-4">
-                <Link to="/">Home</Link>
-                <Link to="/posts">Posts</Link>
-                <Link to="/contact">Contact</Link>
-            </nav>
             <div className="space-x-4 flex items-center">
                 <button onClick={toggleTheme}>
                     Toggle {theme === "light" ? "Dark" : "Light"}
                 </button>
+                <nav className="space-x-4">
+                    <Link to="/">Home</Link>
+                    <Link to="/posts">Posts</Link>
+                    <Link to="/contact">Contact</Link>
+                </nav>
                 {user ? (
                     <>
                         <span className="font-semibold">
