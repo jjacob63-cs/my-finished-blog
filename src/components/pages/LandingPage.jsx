@@ -15,8 +15,9 @@ export default function HomePage(){
                     className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition"
                 >
                     Login
+                    
                 </Link>
-                
+
                 <Link
                     to="/posts"
                     className="bg-gray-800 text-white px-6 py-2 rounded hover:bg-gray-900 transition"
