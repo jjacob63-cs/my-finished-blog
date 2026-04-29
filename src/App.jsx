@@ -25,13 +25,6 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
-                <Route 
-                  path="/post/:id" 
-                  element={
-                    <ProtectedRoute>
-                      <IndividualPostPage />
-                    </ProtectedRoute>
-                  } />
                 <Route
                   path="/posts"
                   element={
@@ -40,7 +33,16 @@ export default function App() {
                     </ProtectedRoute>
                   }
                 />
-                <Route path="/contact" element={<ContactPage />} /> 
+                <Route
+                  path="/post/:id"
+                  element={
+                    <ProtectedRoute>
+                      <IndividualPostPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="*" element={<HomePage />} />
               </Routes>
             </main>
 
